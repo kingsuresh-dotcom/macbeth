@@ -5,7 +5,7 @@
 <h1 align="center">Macbeth for macOS</h1>
 
 <p align="center">
-  <strong>The Rufus-Class Bootable USB & Installation Media Creator for Mac</strong><br>
+  <strong>A Bootable USB & Installation Media Creator for Mac</strong><br>
   Engineered in Swift 6 for Apple Silicon & Intel macOS (macOS 14 Sonoma, macOS 15 Sequoia, and beyond).
 </p>
 
