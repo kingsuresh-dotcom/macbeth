@@ -33,6 +33,17 @@ struct MacbethApp: App {
                 }
                 .keyboardShortcut("l", modifiers: .control)
             }
+            CommandMenu("Options") {
+                Button("Windows User Experience...") {
+                    viewModel.showWindowsExperienceSheet = true
+                }
+                .keyboardShortcut("e", modifiers: .command)
+                
+                Button("Official OS Download Center...") {
+                    viewModel.showDownloadSheet = true
+                }
+                .keyboardShortcut("d", modifiers: .command)
+            }
         }
     }
 }

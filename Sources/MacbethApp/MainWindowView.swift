@@ -63,6 +63,19 @@ public struct MainWindowView: View {
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                                 Spacer()
+                                if info.imageType == .windowsIso {
+                                    Button(action: {
+                                        vm.showWindowsExperienceSheet = true
+                                    }) {
+                                        HStack(spacing: 3) {
+                                            Image(systemName: "slider.horizontal.2.square")
+                                            Text("Customize...")
+                                        }
+                                        .font(.caption2)
+                                    }
+                                    .buttonStyle(.bordered)
+                                    .help("Customize Windows 11 installation experience (bypasses, local account)")
+                                }
                                 if info.requiresPopcntAdvisory {
                                     Text("Requires SSE4.2 / POPCNT CPU")
                                         .font(.caption2)
