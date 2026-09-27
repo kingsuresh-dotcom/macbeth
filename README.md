@@ -150,15 +150,55 @@ swift build -c release
 ## ⚖️ Legal Disclaimer & Liability Waiver
 
 > [!CAUTION]
-> **PLEASE READ BEFORE USE**: Macbeth is an independent open-source project created **strictly for educational, academic evaluation, and interoperability research purposes**. 
-> 
-> * **Destructive Disk Operations**: Low-level block flashing (`dd`, raw streaming, partitioning) permanently and irreversibly erases data. Users bear 100% sole responsibility for drive selection and data backups.
-> * **Provided "AS-IS" Without Warranty**: To the maximum extent permitted by applicable law, the author(s) and contributor(s) explicitly disclaim all warranties (express, implied, statutory, merchantability, or fitness for a particular purpose).
-> * **Absolute Limitation of Liability**: Under no legal theory shall the author(s) or contributors be held liable for any direct, indirect, incidental, consequential, special, or punitive damages, including data loss, hardware failure, controller corruption, or system inoperability.
-> * **Non-Affiliation**: Microsoft, Windows, Windows 11, macOS, Apple, Ubuntu, Fedora, Debian, Arch Linux, and Rufus are registered trademarks of their respective owners. Macbeth is not sponsored, endorsed, or affiliated with any trademark owner.
-> * **Licensing & EULA Compliance**: Users must possess genuine, legitimate licenses for any operating systems or software installed using this tool and comply with all applicable third-party EULAs and local laws.
->
-> For the complete, legally binding terms and global liability waivers, see **[DISCLAIMER.md](DISCLAIMER.md)**.
+> **CRITICAL LEGAL NOTICE — READ BEFORE DOWNLOADING OR USING**:
+> Macbeth is an independent open-source project created and published **solely and strictly for educational, academic evaluation, and interoperability research purposes**. Low-level block flashing and raw disk operations are **INHERENTLY DESTRUCTIVE**. By downloading, cloning, compiling, installing, or executing Macbeth, you expressly agree to all terms, disclaimers, and liability waivers detailed below. For the dedicated legal document, see [DISCLAIMER.md](DISCLAIMER.md).
+
+### 1. Purely Educational, Experimental, & Research Purposes
+The Software is developed, published, and maintained solely and strictly for **academic, educational, evaluative, interoperability, and software architecture research purposes** (investigating native Swift 6 concurrency, Darwin character device block streaming via `/dev/rdisk*`, unattend automation schemas, and upstream manifest querying). The Software is **not** designed, marketed, intended, or licensed for enterprise production deployments, commercial redistribution, mission-critical operations, or safety-critical computing environments.
+
+### 2. Inherent Risks of Low-Level Disk Operations & Total User Responsibility
+**RAW DISK AND FLASH MEDIA OPERATIONS ARE INHERENTLY DESTRUCTIVE.**
+The Software interacts directly with low-level storage controller subsystems, DiskArbitration, raw disk device nodes, and partition tables. Flashing an image, formatting a volume, partitioning a drive, or modifying boot sector structures will permanently, irretrievably, and destructively overwrite all pre-existing data on the target storage medium.
+* You bear **100% sole and exclusive responsibility** for identifying, selecting, verifying, and double-checking target disk identifiers (e.g., `/dev/disk*` / `/dev/rdisk*`).
+* You must verify that you have backed up all critical data on any connected internal or external storage devices prior to initiating any write operations.
+* Under no circumstances shall the author(s), contributor(s), or copyright holder(s) be held liable for any loss of data, accidental formatting of unintended devices, corrupted filesystems, or hardware failures.
+
+### 3. Absolute "AS-IS" Warranty Disclaimer
+**TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW IN ANY JURISDICTION WORLDWIDE:**
+THE SOFTWARE IS PROVIDED ON AN **"AS IS"**, **"WITH ALL FAULTS"**, AND **"AS AVAILABLE"** BASIS, WITHOUT ANY WARRANTIES, COVENANTS, GUARANTEES, OR REPRESENTATIONS OF ANY KIND, WHETHER EXPRESS, IMPLIED, STATUTORY, OR ARISING BY COURSE OF DEALING, USAGE, OR TRADE PRACTICE.
+
+THE AUTHOR(S), COPYRIGHT HOLDER(S), CONTRIBUTOR(S), AND AFFILIATES SPECIFICALLY DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION:
+* ANY IMPLIED WARRANTIES OF **MERCHANTABILITY**, **FITNESS FOR A PARTICULAR PURPOSE**, **QUALITY**, **RELIABILITY**, **SECURITY**, OR **TITLE**;
+* ANY WARRANTY THAT THE SOFTWARE WILL BE UNINTERRUPTED, TIMELY, SECURE, ACCURATE, ERROR-FREE, FREE OF BUGS, COMPATIBLE WITH ANY PARTICULAR OPERATING SYSTEM, HARDWARE, OR FIRMWARE REVISION, OR THAT DEFECTS WILL BE CORRECTED;
+* ANY WARRANTY OF **NON-INFRINGEMENT** OF INTELLECTUAL PROPERTY OR PROPRIETARY RIGHTS OF ANY THIRD PARTY.
+
+### 4. Comprehensive Worldwide Limitation of Liability
+**UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL, EQUITABLE, OR JURISPRUDENTIAL THEORY—WHETHER IN CONTRACT, TORT (INCLUDING NEGLIGENCE, STRICT LIABILITY, OR GROSS FAULT TO THE MAXIMUM EXTENT PERMITTED BY LAW), PRODUCT LIABILITY, INDEMNITY, OR OTHERWISE—SHALL THE AUTHOR(S), COPYRIGHT OWNER(S), MAINTAINER(S), OR ANY INDIVIDUAL OR ENTITY ASSOCIATED WITH THIS REPOSITORY BE LIABLE TO YOU OR ANY THIRD PARTY FOR:**
+1. ANY DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, PUNITIVE, EXEMPLARY, OR RETRIBUTIVE DAMAGES;
+2. ANY LOSS OF DATA, REVENUE, PROFITS, USE, GOODWILL, BUSINESS OPPORTUNITIES, OR ANTICIPATED SAVINGS;
+3. ANY HARDWARE DAMAGE, NAND FLASH WEAR, CONTROLLER FAILURE, LOGIC BOARD ISSUE, SYSTEM INSTABILITY, FIRMWARE BRICKING, OR BOOTLOADER INCOMPATIBILITY;
+4. ANY INTERRUPTION OF BUSINESS, COMPUTER FAILURE, CORRUPTION OF STORAGE DEVICES, OR SYSTEM DOWNTIME;
+5. ANY CLAIMS, PROCEEDINGS, COSTS, EXPENSES, OR ATTORNEY'S FEES ARISING OUT OF OR IN CONNECTION WITH THE DOWNLOAD, INSTALLATION, USE, PERFORMANCE, OR INABILITY TO USE THE SOFTWARE.
+
+YOUR SOLE AND EXCLUSIVE REMEDY FOR DISSATISFACTION WITH THE SOFTWARE IS TO CEASE USING AND PERMANENTLY DELETE THE SOFTWARE.
+
+### 5. Third-Party Trademarks & Strict Non-Affiliation
+All product names, logos, brands, operating system titles, and registered or unregistered trademarks referenced within the Software or its documentation are the property of their respective trademark holders:
+* **Microsoft, Windows, Windows 11, and Windows PE** are registered trademarks of Microsoft Corporation.
+* **macOS, Apple, Apple Silicon, Mac, and DiskArbitration** are registered trademarks of Apple Inc.
+* **Ubuntu** is a registered trademark of Canonical Ltd.
+* **Fedora** is a registered trademark of Red Hat, Inc. / Fedora Project.
+* **Debian** is a registered trademark of Software in the Public Interest, Inc.
+* **Arch Linux** is a registered trademark of Aaron Griffin.
+* **Rufus** is the trademark/creation of Pete Batard / Akeo Consulting.
+
+**Macbeth is an independent open-source project.** The Software is **NOT** sponsored, endorsed, certified, vetted, affiliated with, or provided by Microsoft Corporation, Apple Inc., Canonical Ltd., Red Hat, Inc., the Debian Project, or any other trademark owner. All references to third-party operating systems or tools are made strictly for informational, descriptive, and nominative fair-use purposes.
+
+### 6. End-User Compliance & Licensing Responsibility
+The Software does **NOT** provide, distribute, mirror, or bundle proprietary operating system licenses, product keys, or digital activation tokens. Users are solely and exclusively responsible for possessing valid, genuine licenses for any operating systems installed using the Software and complying with all applicable End User License Agreements (EULAs), local laws, and regulations.
+
+### 7. Global Severability & International Jurisdiction
+If any provision of this Legal Disclaimer is determined by a court of competent jurisdiction to be invalid, unlawful, or unenforceable under the laws of any particular jurisdiction, such determination shall not affect the validity or enforceability of any other provision, which shall remain in full force and effect. This disclaimer shall be construed and interpreted broadly to provide the maximum legal protection, waiver of liability, and indemnification permitted under applicable international law. Complete terms: [DISCLAIMER.md](DISCLAIMER.md).
 
 ---
 
