@@ -1,0 +1,24 @@
+# Xcode / Swift Package Manager
+.build/
+.swiftpm/
+Packages/
+*.xcodeproj
+*.xcworkspace
+DerivedData/
+
+# App bundles and binaries
+Macbeth.app/
+*.dmg
+*.pkg
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Scratch and temporary files
+scratch/
+tmp/
+*.log
