@@ -14,8 +14,17 @@
   <img src="https://img.shields.io/badge/Platform-macOS_14.0+-blue.svg" alt="Platform">
   <img src="https://img.shields.io/badge/Architecture-ARM64%20%7C%20x86__64-purple.svg" alt="Architecture">
   <img src="https://img.shields.io/badge/Tests-15%2F15_Passing-brightgreen.svg" alt="Tests">
+  <img src="https://img.shields.io/badge/Craft-100%25_Vibe--Coded-ff69b4.svg" alt="100% Vibe-Coded">
   <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
 </p>
+
+---
+
+> [!NOTE]
+> ### 🤖 100% Vibe-Coded
+> **Macbeth is 100% vibe-coded.** Every single component—from the high-speed raw POSIX block streamer and low-level IOKit hardware disk guardrails, to the Windows 11 unattend XML injection engine and native SwiftUI interfaces—was conceived, architected, debugged, and implemented entirely through **natural language AI prompting and autonomous agent pairing**.
+>
+> Not a single line of Swift was hand-written. This project serves as an active testbed and living portfolio piece for honing and mastering advanced AI prompting, autonomous SDLC directives, and prompt-driven systems engineering.
 
 ---
 
