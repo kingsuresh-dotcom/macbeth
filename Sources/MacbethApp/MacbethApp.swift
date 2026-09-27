@@ -43,6 +43,17 @@ struct MacbethApp: App {
                     viewModel.showDownloadSheet = true
                 }
                 .keyboardShortcut("d", modifiers: .command)
+                
+                Divider()
+                
+                Button("Legal Disclaimer & Terms...") {
+                    viewModel.showTermsSheet = true
+                }
+            }
+            CommandGroup(replacing: .help) {
+                Button("Legal Disclaimer & Terms...") {
+                    viewModel.showTermsSheet = true
+                }
             }
         }
     }

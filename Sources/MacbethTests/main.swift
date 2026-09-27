@@ -192,6 +192,45 @@ struct MacbethTestRunner {
             }
         }
         
+        runTest(name: "PosixRawStreamer: 16MB unbuffered DMA stream integrity") {
+            let tempDir = FileManager.default.temporaryDirectory
+            let srcFile = tempDir.appendingPathComponent("macbeth_stream_src_\(UUID().uuidString).bin")
+            let dstFile = tempDir.appendingPathComponent("macbeth_stream_dst_\(UUID().uuidString).bin")
+            
+            let testSize = 16 * 1024 * 1024
+            var sampleData = Data(count: testSize)
+            for i in 0..<testSize {
+                sampleData[i] = UInt8(i & 0xFF)
+            }
+            try sampleData.write(to: srcFile)
+            FileManager.default.createFile(atPath: dstFile.path, contents: nil)
+            
+            defer {
+                try? FileManager.default.removeItem(at: srcFile)
+                try? FileManager.default.removeItem(at: dstFile)
+            }
+            
+            final class SafeCounter: @unchecked Sendable {
+                private var val = 0
+                private let lock = NSLock()
+                func inc() { lock.lock(); val += 1; lock.unlock() }
+                func count() -> Int { lock.lock(); defer { lock.unlock() }; return val }
+            }
+            let counter = SafeCounter()
+            
+            let streamer = PosixRawStreamer()
+            try streamer.stream(sourcePath: srcFile.path, destinationBSD: dstFile.path, expectedTotalBytes: Int64(testSize)) { written, total, speed in
+                counter.inc()
+                assert(written <= total, "Written bytes cannot exceed total bytes")
+            }
+            
+            let (srcHash, _) = try ChecksumEngine.computeHashes(fileURL: srcFile)
+            let (dstHash, _) = try ChecksumEngine.computeHashes(fileURL: dstFile)
+            
+            assert(srcHash == dstHash, "Streamed data hash must be byte-for-byte identical to source")
+            assert(counter.count() > 0, "Progress reporter must have been invoked during streaming")
+        }
+        
         print("======================================================================")
         print(" TEST SUITE SUMMARY: \(testsPassed) PASSED, \(testsFailed) FAILED")
         print("======================================================================")

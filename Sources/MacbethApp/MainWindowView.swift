@@ -201,7 +201,7 @@ public struct MainWindowView: View {
                         vm.onStartClicked()
                     }
                     .buttonStyle(.borderedProminent)
-                    .disabled(vm.selectedDevice == nil || vm.selectedImageURL == nil)
+                    .disabled(!vm.hasAcceptedTerms || vm.selectedDevice == nil || vm.selectedImageURL == nil)
                 }
                 
                 Button("CLOSE") {
@@ -213,6 +213,9 @@ public struct MainWindowView: View {
         }
         .padding(14)
         .frame(width: 520)
+        .sheet(isPresented: $vm.showTermsSheet) {
+            TermsAndConditionsSheet(vm: vm)
+        }
         .sheet(isPresented: $vm.showWindowsExperienceSheet) {
             WindowsExperienceSheet(vm: vm)
         }

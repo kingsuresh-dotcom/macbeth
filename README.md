@@ -147,6 +147,21 @@ swift build -c release
 
 ---
 
+## ⚖️ Legal Disclaimer & Liability Waiver
+
+> [!CAUTION]
+> **PLEASE READ BEFORE USE**: Macbeth is an independent open-source project created **strictly for educational, academic evaluation, and interoperability research purposes**. 
+> 
+> * **Destructive Disk Operations**: Low-level block flashing (`dd`, raw streaming, partitioning) permanently and irreversibly erases data. Users bear 100% sole responsibility for drive selection and data backups.
+> * **Provided "AS-IS" Without Warranty**: To the maximum extent permitted by applicable law, the author(s) and contributor(s) explicitly disclaim all warranties (express, implied, statutory, merchantability, or fitness for a particular purpose).
+> * **Absolute Limitation of Liability**: Under no legal theory shall the author(s) or contributors be held liable for any direct, indirect, incidental, consequential, special, or punitive damages, including data loss, hardware failure, controller corruption, or system inoperability.
+> * **Non-Affiliation**: Microsoft, Windows, Windows 11, macOS, Apple, Ubuntu, Fedora, Debian, Arch Linux, and Rufus are registered trademarks of their respective owners. Macbeth is not sponsored, endorsed, or affiliated with any trademark owner.
+> * **Licensing & EULA Compliance**: Users must possess genuine, legitimate licenses for any operating systems or software installed using this tool and comply with all applicable third-party EULAs and local laws.
+>
+> For the complete, legally binding terms and global liability waivers, see **[DISCLAIMER.md](DISCLAIMER.md)**.
+
+---
+
 ## License
 
 Macbeth is released under the [MIT License](LICENSE).

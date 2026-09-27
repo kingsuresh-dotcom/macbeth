@@ -8,6 +8,7 @@ DerivedData/
 
 # App bundles and binaries
 Macbeth.app/
+build/
 *.dmg
 *.pkg
 

@@ -25,11 +25,13 @@ public final class PosixRawStreamer: @unchecked Sendable {
         let rdiskPath = DeviceNodeSanitizer.toRawDeviceNode(cleanBSD)
         
         // Step 1: Pre-unmount all partitions on destination disk to release OS volume locks
-        let unmountProc = Process()
-        unmountProc.executableURL = URL(fileURLWithPath: "/usr/sbin/diskutil")
-        unmountProc.arguments = ["unmountDisk", "force", cleanBSD]
-        try? unmountProc.run()
-        unmountProc.waitUntilExit()
+        if cleanBSD.hasPrefix("/dev/") {
+            let unmountProc = Process()
+            unmountProc.executableURL = URL(fileURLWithPath: "/usr/sbin/diskutil")
+            unmountProc.arguments = ["unmountDisk", "force", cleanBSD]
+            try? unmountProc.run()
+            unmountProc.waitUntilExit()
+        }
         
         let srcFd = open(sourcePath, O_RDONLY)
         guard srcFd >= 0 else {
@@ -147,11 +149,13 @@ public final class PosixRawStreamer: @unchecked Sendable {
         progress(totalWritten, totalSize, smoothedSpeedMBps)
         
         // Refresh and eject disk cleanly so macOS recognizes the newly created partition map
-        let ejectProc = Process()
-        ejectProc.executableURL = URL(fileURLWithPath: "/usr/sbin/diskutil")
-        ejectProc.arguments = ["eject", cleanBSD]
-        try? ejectProc.run()
-        ejectProc.waitUntilExit()
+        if cleanBSD.hasPrefix("/dev/") {
+            let ejectProc = Process()
+            ejectProc.executableURL = URL(fileURLWithPath: "/usr/sbin/diskutil")
+            ejectProc.arguments = ["eject", cleanBSD]
+            try? ejectProc.run()
+            ejectProc.waitUntilExit()
+        }
     }
     
     public func cancel() {

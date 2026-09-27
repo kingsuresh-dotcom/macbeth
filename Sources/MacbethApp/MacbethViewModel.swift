@@ -35,6 +35,8 @@ public final class MacbethViewModel: ObservableObject {
     @Published public var showConfirmEraseAlert: Bool = false
     @Published public var alertErrorMessage: String? = nil
     @Published public var isTargetedForDrop: Bool = false
+    @Published public var showTermsSheet: Bool = false
+    @Published public var hasAcceptedTerms: Bool = false
     
     // Progress
     @Published public var isBurning: Bool = false
@@ -51,9 +53,18 @@ public final class MacbethViewModel: ObservableObject {
     private var activeElevatedProcess: Process? = nil
     
     public init() {
+        let accepted = UserDefaults.standard.bool(forKey: "macbeth_accepted_terms_v1")
+        self.hasAcceptedTerms = accepted
+        self.showTermsSheet = !accepted
         Task {
             await refreshDevices()
         }
+    }
+    
+    public func acceptTerms() {
+        UserDefaults.standard.set(true, forKey: "macbeth_accepted_terms_v1")
+        self.hasAcceptedTerms = true
+        self.showTermsSheet = false
     }
     
     public func refreshDevices() async {
@@ -107,6 +118,10 @@ public final class MacbethViewModel: ObservableObject {
     }
     
     public func onStartClicked() {
+        guard hasAcceptedTerms else {
+            showTermsSheet = true
+            return
+        }
         guard let device = selectedDevice else {
             alertErrorMessage = "Please select a target USB device."
             return
@@ -125,6 +140,10 @@ public final class MacbethViewModel: ObservableObject {
     }
     
     public func startBurn() async {
+        guard hasAcceptedTerms else {
+            showTermsSheet = true
+            return
+        }
         guard let device = selectedDevice, let info = imageInfo else { return }
         isBurning = true
         burnPhase = .preparing
