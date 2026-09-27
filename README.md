@@ -23,7 +23,7 @@
 
 > [!NOTE]
 > ### 🤖 100% Vibe-Coded
-> **Macbeth is 100% vibe-coded.** Every single component—from the high-speed raw POSIX block streamer and low-level IOKit hardware disk guardrails, to the Windows 11 unattend XML injection engine and native SwiftUI interfaces—was conceived, architected, debugged, and implemented entirely through **natural language AI prompting and autonomous agent pairing**.
+> **Macbeth is 100% vibe-coded.** Every single component—from the high-speed raw POSIX block streamer and low-level IOKit hardware disk guardrails, to the Windows 11 unattended setup XML (`autounattend.xml`) injection engine and native SwiftUI interfaces—was conceived, architected, debugged, and implemented entirely through **natural language AI prompting and autonomous agent pairing**.
 >
 > Not a single line of Swift was hand-written. This project serves as an active testbed and living portfolio piece for honing and mastering advanced AI prompting, autonomous SDLC directives, and prompt-driven systems engineering.
 
@@ -33,7 +33,7 @@
 
 **Macbeth** brings the power, speed, and deep customization of Windows tools like **Rufus** natively to macOS. 
 
-Flashing Windows 11, Linux distributions, or raw OS images on a Mac has historically required archaic command-line `dd` hacks, third-party FAT32/WIM splitting scripts, or slow virtualization workarounds. Macbeth solves this completely by providing a dedicated, high-performance, and safety-hardened native pipeline with automated unattend generation, hardware drive protection, and dynamic upstream ISO cataloging.
+Flashing Windows 11, Linux distributions, or raw OS images on a Mac has historically required archaic command-line `dd` hacks, third-party FAT32/WIM splitting scripts, or slow virtualization workarounds. Macbeth solves this completely by providing a dedicated, high-performance, and safety-hardened native pipeline with automated unattended setup generation (`autounattend.xml`), hardware drive protection, and dynamic upstream ISO cataloging.
 
 ---
 
@@ -117,7 +117,7 @@ sudo macbeth write --device /dev/disk4 --image ~/Downloads/archlinux-x86_64.iso 
 
 The Macbeth codebase is modularized under Swift Package Manager:
 
-* **`MacbethCore`**: Pure Swift business logic, device discovery, unattend generator, inspection engine, POSIX streaming, and diagnostic scanners.
+* **`MacbethCore`**: Pure Swift business logic, device discovery, unattended setup generator (`autounattend.xml`), inspection engine, POSIX streaming, and diagnostic scanners.
 * **`MacbethApp`**: Modern SwiftUI macOS desktop application with reactive state management and dynamic catalog resolution.
 * **`MacbethCLI`**: High-performance headless CLI wrapper.
 * **`MacbethTests`**: Automated test suite with 100% strict concurrency verification.
@@ -195,7 +195,7 @@ swift run macbeth-tests
 > Macbeth is an independent open-source project created and published **solely and strictly for educational, academic evaluation, and interoperability research purposes**. Low-level block flashing and raw disk operations are **INHERENTLY DESTRUCTIVE**. By downloading, cloning, compiling, installing, or executing Macbeth, you expressly agree to all terms, disclaimers, and liability waivers detailed below. For the dedicated legal document, see [DISCLAIMER.md](DISCLAIMER.md).
 
 ### 1. Purely Educational, Experimental, & Research Purposes
-The Software is developed, published, and maintained solely and strictly for **academic, educational, evaluative, interoperability, and software architecture research purposes** (investigating native Swift 6 concurrency, Darwin character device block streaming via `/dev/rdisk*`, unattend automation schemas, and upstream manifest querying). The Software is **not** designed, marketed, intended, or licensed for enterprise production deployments, commercial redistribution, mission-critical operations, or safety-critical computing environments.
+The Software is developed, published, and maintained solely and strictly for **academic, educational, evaluative, interoperability, and software architecture research purposes** (investigating native Swift 6 concurrency, Darwin character device block streaming via `/dev/rdisk*`, unattended setup automation schemas, and upstream manifest querying). The Software is **not** designed, marketed, intended, or licensed for enterprise production deployments, commercial redistribution, mission-critical operations, or safety-critical computing environments.
 
 ### 2. Inherent Risks of Low-Level Disk Operations & Total User Responsibility
 **RAW DISK AND FLASH MEDIA OPERATIONS ARE INHERENTLY DESTRUCTIVE.**
