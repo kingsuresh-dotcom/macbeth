@@ -10,10 +10,11 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/kingsuresh-dotcom/macbeth/releases/latest"><img src="https://img.shields.io/badge/Release-v1.0.0-blue.svg" alt="Latest Release"></a>
   <img src="https://img.shields.io/badge/Swift-6.4_Strict_Concurrency-orange.svg" alt="Swift 6">
   <img src="https://img.shields.io/badge/Platform-macOS_14.0+-blue.svg" alt="Platform">
   <img src="https://img.shields.io/badge/Architecture-ARM64%20%7C%20x86__64-purple.svg" alt="Architecture">
-  <img src="https://img.shields.io/badge/Tests-15%2F15_Passing-brightgreen.svg" alt="Tests">
+  <img src="https://img.shields.io/badge/Tests-16%2F16_Passing-brightgreen.svg" alt="Tests">
   <img src="https://img.shields.io/badge/Craft-100%25_Vibe--Coded-ff69b4.svg" alt="100% Vibe-Coded">
   <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
 </p>
@@ -125,24 +126,64 @@ For in-depth design documentation and architectural diagrams, see [ARCHITECTURE.
 
 ---
 
-## Building from Source
+## 💾 Download & Installation
 
-### Prerequisites
+### Option 1: macOS Disk Image (.dmg) — Recommended for All Users
+
+Pre-compiled, notarization-ready disk image installers are available directly from the **[GitHub Releases](https://github.com/kingsuresh-dotcom/macbeth/releases/latest)** page:
+
+| Package | Architecture | Description | Download |
+| :--- | :--- | :--- | :--- |
+| **Macbeth Universal 2** | `arm64` + `x86_64` | **Recommended**: Runs natively on all Apple Silicon and Intel Macs | [**Macbeth-1.0.0-Universal.dmg**](https://github.com/kingsuresh-dotcom/macbeth/releases/download/v1.0.0/Macbeth-1.0.0-Universal.dmg) |
+| **Macbeth Apple Silicon** | `arm64` | Optimized specifically for Apple Silicon (M1, M2, M3, M4) Macs | [**Macbeth-1.0.0-AppleSilicon.dmg**](https://github.com/kingsuresh-dotcom/macbeth/releases/download/v1.0.0/Macbeth-1.0.0-AppleSilicon.dmg) |
+| **Macbeth Intel** | `x86_64` | Optimized for legacy Intel-based Macs | [**Macbeth-1.0.0-Intel.dmg**](https://github.com/kingsuresh-dotcom/macbeth/releases/download/v1.0.0/Macbeth-1.0.0-Intel.dmg) |
+
+#### Quick Install Steps:
+1. **Download** the `.dmg` installer for your Mac architecture (if unsure, choose the **Universal** package).
+2. **Double-click** the downloaded `.dmg` file to mount the disk image.
+3. **Drag** `Macbeth.app` into your **Applications** folder.
+4. **Launch** Macbeth from `/Applications` or via Spotlight (`⌘ Space` &rarr; type `Macbeth`).
+5. Upon first launch, review and accept the in-app **Legal Terms of Use** to unlock the flashing engine.
+
+---
+
+### Option 2: Standalone CLI Tool
+
+For automated scripts, terminal pipelines, or headless server management:
+
+```bash
+# Download and unpack the Universal CLI binary
+curl -LO https://github.com/kingsuresh-dotcom/macbeth/releases/download/v1.0.0/macbeth-1.0.0-darwin-universal.tar.gz
+tar -xzf macbeth-1.0.0-darwin-universal.tar.gz
+
+# Install binary to system PATH
+sudo mv macbeth /usr/local/bin/
+
+# Verify installation
+macbeth --help
+```
+
+---
+
+### Option 3: Building from Source (Developers)
+
+If you wish to inspect the Swift 6 source code, modify pipelines, or contribute to Macbeth:
+
+#### Prerequisites
 * macOS 14.0 (Sonoma) or newer
 * Xcode 16+ or Apple Command Line Tools (Swift 6.0+)
 
-### Build & Test
+#### Build & Run
 ```bash
 # Clone the repository
 git clone https://github.com/kingsuresh-dotcom/macbeth.git
 cd macbeth
 
-# Run the automated test suite
+# Run the 16 automated tests
 swift run macbeth-tests
 
-# Build application bundle
-swift build -c release
-./scripts/package_app.sh
+# Compile and package release application bundles
+./scripts/build_release_dmg.sh
 ```
 
 ---
